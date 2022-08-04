@@ -19,7 +19,7 @@ jobs:
         uses: suo/flake8-github-action@releases/v1
 
   build:
-
+    needs: [pre-build]
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
