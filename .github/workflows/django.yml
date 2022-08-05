@@ -19,11 +19,9 @@ jobs:
             requirementsFiles: "requirements.txt"
             configuration: "--diff"
       - name: Flake8
-        uses: julianwachholz/flake8-action@v2
+        uses: grantmcconnaughey/lintly-flake8-github-action@v1.0
         with:
-          checkName: 'pre-build'   # NOTE: this needs to be the same as the job name
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   build:
     needs: [pre-build]
