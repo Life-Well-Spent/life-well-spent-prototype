@@ -10,6 +10,5 @@ class HelloWorldTests(SimpleTestCase):
         self.response = self.client.get(url)
     def test_status_code(self):
         assert self.response.status_code == 200
-    
     def test_template(self):
         assert "pages/hello_world.html" in (t.name for t in self.response.templates )
