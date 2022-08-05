@@ -2,6 +2,7 @@ import pytest
 from django.test import SimpleTestCase
 from django.urls import reverse
 
+
 @pytest.mark.django_db
 class HelloWorldTests(SimpleTestCase):
     def setUp(self):
