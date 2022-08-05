@@ -6,7 +6,7 @@ from django.urls import reverse
 @pytest.mark.django_db
 class HelloWorldTests(SimpleTestCase):
     def setUp(self):
-        url = reverse('hello_world')
+        url = reverse("hello_world")
         self.response = self.client.get(url)
     
     def test_status_code(self):
