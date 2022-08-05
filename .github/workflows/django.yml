@@ -15,8 +15,8 @@ jobs:
           pip install isort black
       - name: Run isort and black
         run: |
-          isort
-          black
+          isort .
+          black .
       - name: Annotate diff changes using reviewdog
         uses: reviewdog/action-suggester@v1
         with:
