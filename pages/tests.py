@@ -29,7 +29,6 @@ class HomeTests(TestCase):
 
         assert "Log in" in self.response.rendered_content
 
-
         assert "Log in" in self.response.rendered_content
         self.client.login(email=self.super_user.email, password="testpass123")
         response = self.client.get(self.url)
