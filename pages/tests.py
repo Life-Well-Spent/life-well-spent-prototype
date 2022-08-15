@@ -31,7 +31,8 @@ class HomeTests(TestCase):
 
         assert "Log in" in self.response.rendered_content
 
-    def test_logged_in(self):
+
+        assert "Log in" in self.response.rendered_content
         self.client.login(email=self.super_user.email, password="testpass123")
         response = self.client.get(self.url)
         assert "Log out" in response.rendered_content
