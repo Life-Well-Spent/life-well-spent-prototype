@@ -26,6 +26,7 @@ class HomeTests(TestCase):
 
     def test_template(self):
         assert "pages/home.html" in (t.name for t in self.response.templates)
+
     def test_not_logged_in(self):
         assert "Log in" in self.response.rendered_content
     def test_logged_in(self):
