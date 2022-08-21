@@ -1,0 +1,31 @@
+{% load crispy_forms_filters %}
+
+{% block modal %}
+  <button type="button" class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#{{ main_id }}{{ goal.id }}" onclick="onLoad('{{ main_id }}{{ goal.id }}-form')">
+    {{ btn_text }}
+  </button>
+
+  <div class="modal fade" id="{{ main_id }}{{ goal.id }}" tabindex="-1" data-bs-backdrop="static" aria-labelledby="{{ main_id }}{{ goal.id }}" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="{{ main_id }}{{ goal.id }}">{{ title }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="{{ main_id }}{{ goal.id }}-form" action="{% if goal.id %}{% url url goal.id %}{% else %}{% url url %}{% endif %}" method="post" onload="onLoad('{{ main_id }}{{ goal.id }}-form')">
+          {% csrf_token %}
+          <div class="modal-body">
+            {{ form|crispy }}
+          </div>
+          <div class="modal-footer">
+            {% if delete %}
+              <button type="button" class="btn btn-danger me-auto" name="delete" onclick="location.href= '{% url "delete_goal" goal.id request.path %}'">Delete</button>
+            {% endif %}
+              <button type="submit" class="btn btn-custom">Save changes</button>
+          </div>
+          <input type="hidden" name="next" value="{{ request.path }}">
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock modal %}

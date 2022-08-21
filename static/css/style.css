@@ -47,6 +47,14 @@
     width: 25px;
 }
 
-.auth-form{
+.custom-form{
     max-width: 25rem;
+}
+
+.pagination{
+    --bs-pagination-color: var(--primary);
+    --bs-pagination-hover-color: var(--primary);
+    --bs-pagination-focus-color: var(--primary);
+    --bs-pagination-active-bg: var(--primary);
+    --bs-pagination-active-border-color: var(--primary);
 }

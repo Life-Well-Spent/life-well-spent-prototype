@@ -1,0 +1,13 @@
+{% extends "goals/lists/base/goal_list.html" %}
+
+{% block title %}
+    {% with subtitle="Planned" %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock title %}
+
+{% block content %}
+    {% with subtitle="Planned" url_name="planned_goals" status_update=True show_overdue=False %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock content %}
