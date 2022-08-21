@@ -7,8 +7,14 @@ from django.urls import reverse
 
 from common.utils import get_current_quarter
 
-from .models import (GoalModel, MonthEnum, QuarterEnum, StatusEnum, TimeModel,
-                     TimeTypeEnum)
+from .models import (
+    GoalModel,
+    MonthEnum,
+    QuarterEnum,
+    StatusEnum,
+    TimeModel,
+    TimeTypeEnum,
+)
 
 
 @pytest.mark.django_db
