@@ -16,7 +16,7 @@
     <h1>Sign Up</h1>
     <br>
 
-    <form method="post" class="auth-form">
+    <form method="post" class="custom-form">
         {% csrf_token %}
         {{ form|crispy }}
         <button class="btn btn-custom" type="submit">Sign up</button>

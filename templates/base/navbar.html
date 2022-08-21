@@ -14,6 +14,19 @@
             <li class="nav-item">
               <a class="nav-link {% if active == "home" %} active {% endif %}" aria-current="page" href="{% url "home" %}">Home</a>
             </li>
+            {% if user.is_authenticated %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle {% if active == "goals" %} active {% endif %}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Goals
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{% url "backlog_goals" %}">Backlog</a></li>
+                  <li><a class="dropdown-item" href="{% url "planned_goals" %}">Planned</a></li>
+                  <li><a class="dropdown-item" href="{% url "current_goals" %}">Current</a></li>
+                  <li><a class="dropdown-item" href="{% url "archive_goals" %}">Archive</a></li>
+                </ul>
+              </li>
+            {% endif %}
             {% if user.is_superuser %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url "admin:index" %}">Admin</a>

@@ -20,4 +20,5 @@ urlpatterns = [
     path("thisisnottheadminurl/", admin.site.urls),
     path("accounts/", include("allauth.urls")),
     path("", include("pages.urls")),
+    path("goals/", include("goals.urls")),
 ]

@@ -1,0 +1,31 @@
+<div class="card card-block">
+    <div class="card-body">
+        <div class="d-flex flex-row">
+            <div>
+                <h5 class="card-title">{{ goal.name }}</h5>
+                {% if goal.due_time.type %}<h6 class="card-subtitle mb-2 text-muted">Due: {{ goal.due_time }} ({{ goal.due_time.calculated|date:'Y-m-d' }})</h6>{% endif %}
+            </div>
+            <div class="ms-auto">
+                {% include 'goals/modals/update_goal_modal.html' with main_id='updateGoalModal-' goal=goal form=update_forms|get_item:goal.id %}
+                <br>
+                <br>
+                {% if status_update %}
+                    <form action="{% url "update_goal" goal.id %}" method="post">
+                        {% csrf_token %}
+                        <select class="select form-select" name="status" onchange="this.form.submit()">
+                            {% for key, value in status_choices %}
+                                <option value="{{ key }}" {% if key == goal.status %}selected{% endif %}>{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="hidden" name="status_update" value="Y">
+                        <input type="hidden" name="next" value="{{ request.path }}">
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% include "goals/lists/base/goal_accordion.html" with goal=goal border=True %}
+
+</div>
+<br>

@@ -1,0 +1,7 @@
+{% extends "goals/modals/base/goal_modal.html" %}
+
+{% block modal %}
+    {% with title="Create goal" btn_text="Create" url="create_goal" form=form main_id=id %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock modal %}
