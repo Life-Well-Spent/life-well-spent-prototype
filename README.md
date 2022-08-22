@@ -1,5 +1,6 @@
 # Life Well Spent
 ![GitHub](https://img.shields.io/github/license/Life-Well-Spent/life-well-spent?style=flat-square)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/Life-Well-Spent/life-well-spent?style=flat-square)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Life-Well-Spent/life-well-spent?style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/Life-Well-Spent/life-well-spent?style=flat-square)
 ![GitHub contributors](https://img.shields.io/github/contributors/Life-Well-Spent/life-well-spent?style=flat-square)
