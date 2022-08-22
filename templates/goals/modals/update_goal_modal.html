@@ -1,0 +1,7 @@
+{% extends "goals/modals/base/goal_modal.html" %}
+
+{% block modal %}
+    {% with title="Update goal" btn_text="Update" url="update_goal" form=form main_id=main_id goal=goal delete=True %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock modal %}

@@ -1,0 +1,52 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom text-center">
+    <div class="d-flex container-xxl">
+        <a class="navbar-brand" href="{% url "home" %}">
+            <img src="{% static 'images/logo.jpg' %}" alt="Logo" width="40" height="40" class="logo">
+            Life Well Spent
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto flex-nowrap">
+            <li class="nav-item">
+              <a class="nav-link {% if active == "home" %} active {% endif %}" aria-current="page" href="{% url "home" %}">Home</a>
+            </li>
+            {% if user.is_authenticated %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle {% if active == "goals" %} active {% endif %}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Goals
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{% url "backlog_goals" %}">Backlog</a></li>
+                  <li><a class="dropdown-item" href="{% url "planned_goals" %}">Planned</a></li>
+                  <li><a class="dropdown-item" href="{% url "current_goals" %}">Current</a></li>
+                  <li><a class="dropdown-item" href="{% url "archive_goals" %}">Archive</a></li>
+                </ul>
+              </li>
+            {% endif %}
+            {% if user.is_superuser %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "admin:index" %}">Admin</a>
+                </li>
+            {% endif %}
+          </ul>
+          <ul class="navbar-nav ms-auto flex-nowrap">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account_logout' %}">Log out</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link {% if active == "signup" %} active {% endif %}" href="{% url 'account_signup' %}">Sign up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if active == "login" %} active {% endif %}" href="{% url 'account_login' %}">Log in</a>
+                </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+</nav>

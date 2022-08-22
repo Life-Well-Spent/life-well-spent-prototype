@@ -1,0 +1,15 @@
+{% extends "goals/lists/base/goal_list.html" %}
+
+{% load goal_tags %}
+
+{% block title %}
+    {% with subtitle="Current" %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock title %}
+
+{% block content %}
+    {% with subtitle="Current" url_name="current_goals" status_update=True show_overdue=True %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock content %}

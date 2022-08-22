@@ -1,0 +1,13 @@
+{% extends "goals/lists/base/goal_list.html" %}
+
+{% block title %}
+    {% with subtitle="Archived" %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock title %}
+
+{% block content %}
+    {% with subtitle="Archived" url_name="archive_goals" status_update=False show_overdue=False %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock content %}

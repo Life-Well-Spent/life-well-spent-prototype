@@ -1,0 +1,14 @@
+{% extends 'base/_base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block nav %}
+    {% with active="home" %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock nav %}
+
+{% block content %}
+    <h1>Home</h1>
+
+{% endblock content %}

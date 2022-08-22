@@ -5,8 +5,25 @@ on:
     branches: [ "main", "dev" ]
 
 jobs:
-  build:
+  pre-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install isort and black
+        run: |
+          python -m pip install --upgrade pip
+          pip install isort black
+      - name: Run isort and black
+        run: |
+          isort .
+          black .
+      - name: Annotate diff changes using reviewdog
+        uses: reviewdog/action-suggester@v1
+        with:
+          tool_name: py-formatter
 
+  build:
+    needs: [pre-build]
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4

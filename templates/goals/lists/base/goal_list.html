@@ -1,0 +1,63 @@
+{% extends "base/_base.html" %}
+
+{% load static %}
+{% load common_tags %}
+{% load goal_tags %}
+
+{% block title %}{{ subtitle }} goals{% endblock title %}
+
+{% block nav %}
+    {% with active="goals" %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock nav %}
+
+{% block content %}
+    <script defer src="{% static 'js/goal_modal.js' %}"></script>
+
+    <h1>{{ subtitle }} goals</h1>
+    
+    <form class="d-flex custom-form" role="search" action="{% url url_name %}" method="get">
+        <input class="form-control me-4" name="q" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-custom" type="submit">Search</button>
+    </form>
+
+    <br>
+
+    <div class="col-2">
+        {% include 'goals/modals/create_goal_modal.html' with id="createGoalModal" form=create_form %}
+    </div>
+
+    <br>
+    <br>
+
+    {% if goal_list|length == 0 %}
+      <p>Nothing to see here.</p>
+    {% endif %}
+
+    {% with overdue_goal_list=goal_list|overdue %}
+        {% if show_overdue and overdue_goal_list|length > 0 %}
+            <h2>Overdue</h2>
+            {% for goal in overdue_goal_list %}
+                {% include "goals/lists/base/goal_card.html" with goal=goal status_update=status_update %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% with not_overdue_goal_list=goal_list|not_overdue %}
+        {% if not_overdue_goal_list|length > 0 %}
+            {% if show_overdue %}
+                <h2>Upcoming</h2>
+            {% endif %}
+            
+            {% for goal in not_overdue_goal_list %}
+                {% include "goals/lists/base/goal_card.html" with goal=goal status_update=status_update %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <br>
+    <br>
+
+    {% include "base/pagination.html" with page_obj=page_obj %}
+{% endblock content %}

@@ -1,0 +1,60 @@
+:root{
+    --primary: #5f2f8a;
+    --primary-rgb: 95, 47, 138;
+    --primary-darker: #502876;
+}
+
+.navbar-custom{
+    background-color: var(--primary);
+    padding: 0.75rem 0;
+}
+
+.navbar-custom .logo{
+    border-radius: 25%;
+    margin-right: 0.5rem;
+}
+
+.content{
+    margin-top: 1.5rem;
+}
+
+.btn-custom{
+    --bs-btn-bg: var(--primary);
+    --bs-btn-color: white;
+    --bs-btn-hover-bg: var(--primary-darker);
+    --bs-btn-hover-color: white;
+    --bs-btn-active-bg: var(--primary-darker);
+    --bs-btn-active-color: white;
+    --bs-btn-focus-shadow-rgb: var(--primary-rgb);
+    --bs-btn-hover-border-color: var(--primary);
+}
+
+.btn-github{
+    --bs-btn-bg: #24292f;
+    --bs-btn-color: white;
+    --bs-btn-hover-bg: #181c20;
+    --bs-btn-hover-color: white;
+}
+
+.btn-google{
+    border: solid 1px;
+    --bs-btn-bg: #ffffff;
+    --bs-btn-hover-bg: #f2f2f2;
+}
+
+.btn-logo{
+    height: 25px;
+    width: 25px;
+}
+
+.custom-form{
+    max-width: 25rem;
+}
+
+.pagination{
+    --bs-pagination-color: var(--primary);
+    --bs-pagination-hover-color: var(--primary);
+    --bs-pagination-focus-color: var(--primary);
+    --bs-pagination-active-bg: var(--primary);
+    --bs-pagination-active-border-color: var(--primary);
+}
