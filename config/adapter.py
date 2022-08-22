@@ -2,7 +2,6 @@ from allauth.account.adapter import DefaultAccountAdapter
 from environs import Env
 
 
-
 class NoNewUsersAccountAdapter(DefaultAccountAdapter):
     """
     Adapter to disable allauth new signups
