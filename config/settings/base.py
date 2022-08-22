@@ -179,11 +179,8 @@ SOCIALACCOUNT_PROVIDERS = {
             "client_id": env("GOOGLE_CLIENT_ID", ""),
             "secret": env("GOOGLE_CLIENT_SECRET", ""),
         },
-        "SCOPE": [
-            "profile",
-            "email"
-        ]
-    }
+        "SCOPE": ["profile", "email"],
+    },
 }
 
 SENDGRID_API_KEY = env("SENDGRID_API_KEY", "")
