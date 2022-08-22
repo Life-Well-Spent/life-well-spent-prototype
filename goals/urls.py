@@ -1,14 +1,7 @@
 from django.urls import path
 
-from .views import (
-    ArchiveView,
-    BackLogView,
-    CreateView,
-    CurrentView,
-    DeleteView,
-    PlannedView,
-    UpdateView,
-)
+from .views import (ArchiveView, BackLogView, CreateView, CurrentView,
+                    DeleteView, PlannedView, UpdateView)
 
 urlpatterns = [
     path("backlog", BackLogView.as_view(), name="backlog_goals"),

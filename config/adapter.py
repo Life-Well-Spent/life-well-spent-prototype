@@ -1,14 +1,14 @@
 from allauth.account.adapter import DefaultAccountAdapter
-
 from environs import Env
 
+
 class NoNewUsersAccountAdapter(DefaultAccountAdapter):
-    """ 
+    """
     Adapter to disable allauth new signups
     Used at equilang/settings.py with key ACCOUNT_ADAPTER
 
-    https://django-allauth.readthedocs.io/en/latest/advanced.html#custom-redirects """
-    
+    https://django-allauth.readthedocs.io/en/latest/advanced.html#custom-redirects"""
+
     def is_open_for_signup(self, request):
         env = Env()
         env.read_env()
