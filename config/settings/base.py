@@ -171,7 +171,7 @@ SOCIALACCOUNT_PROVIDERS = {
     "github": {
         "APP": {
             "client_id": env("GITHUB_CLIENT_ID", ""),
-            "secret": env("GITHUB_CLIENT_SECRET", "")
+            "secret": env("GITHUB_CLIENT_SECRET", ""),
         }
     },
     "google": {
