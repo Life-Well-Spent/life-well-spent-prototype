@@ -177,7 +177,7 @@ SOCIALACCOUNT_PROVIDERS = {
     "google": {
         "APP": {
             "client_id": env("GOOGLE_CLIENT_ID", ""),
-            "secret": env("GOOGLE_CLIENT_SECRET", "")
+            "secret": env("GOOGLE_CLIENT_SECRET", ""),
         },
         "SCOPE": [
             "profile",
