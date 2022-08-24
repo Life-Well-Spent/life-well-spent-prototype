@@ -29,7 +29,7 @@ class GoalListView(LoginRequiredMixin, ListView):
                 "name": object.name,
                 "time_type": object.due_time.type,
                 "parent_goal_year": object.parent_goal,
-                "parent_goal_quarter_or_month": object.parent_goal,
+                "parent_goal_year_quarter_month": object.parent_goal,
                 "year": object.due_time.year,
                 "quarter": object.due_time.quarter,
                 "month": object.due_time.month,
@@ -152,7 +152,7 @@ def get_post_data(data, user):
     name = data.get("name", None)
     time_type = data.get("time_type", None)
     parent_goal_year_id = data.get("parent_goal_year", None)
-    parent_goal_quarter_or_month_id = data.get("parent_goal_quarter_or_month", None)
+    parent_goal_year_quarter_month_id = data.get("parent_goal_year_quarter_month", None)
     year = data.get("year", None)
     quarter = data.get("quarter", None)
     month = data.get("month", None)
@@ -168,15 +168,15 @@ def get_post_data(data, user):
         parent_goal = parent_goal_year
         year = parent_goal_year.due_time.year
 
-    if parent_goal_quarter_or_month_id:
-        parent_goal_quarter_or_month = GoalModel.objects.filter(user=user).get(
-            pk=parent_goal_quarter_or_month_id
+    if parent_goal_year_quarter_month_id:
+        parent_goal_year_quarter_month = GoalModel.objects.filter(user=user).get(
+            pk=parent_goal_year_quarter_month_id
         )
 
-        parent_goal = parent_goal_quarter_or_month
-        year = parent_goal_quarter_or_month.due_time.year
-        quarter = parent_goal_quarter_or_month.due_time.quarter
-        month = parent_goal_quarter_or_month.due_time.month
+        parent_goal = parent_goal_year_quarter_month
+        year = parent_goal_year_quarter_month.due_time.year
+        quarter = parent_goal_year_quarter_month.due_time.quarter
+        month = parent_goal_year_quarter_month.due_time.month
 
     result["name"] = None if name == "" else name
     result["time_type"] = None if time_type == "" else time_type
