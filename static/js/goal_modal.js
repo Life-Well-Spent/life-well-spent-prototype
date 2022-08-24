@@ -1,7 +1,7 @@
-function ResetToHidden(stat, parent_goal_year, parent_goal_quarter_or_month, year, quarter, month, week){
+function ResetToHidden(stat, parent_goal_year, parent_goal_year_quarter_month, year, quarter, month, week){
     stat.style.display = "none";
     parent_goal_year.style.display = "none";
-    parent_goal_quarter_or_month.style.display = "none";
+    parent_goal_year_quarter_month.style.display = "none";
     year.style.display = "none";
     quarter.style.display = "none";
     month.style.display = "none";
@@ -17,7 +17,7 @@ function UpdateForm(form){
     let parent_goal_year_value = form.querySelector("#id_parent_goal_year").value;
     
     let parent_goal_year = form.querySelector("#div_id_parent_goal_year");
-    let parent_goal_quarter_or_month = form.querySelector("#div_id_parent_goal_quarter_or_month");
+    let parent_goal_year_quarter_month = form.querySelector("#div_id_parent_goal_year_quarter_month");
     let year = form.querySelector("#div_id_year");
     let quarter = form.querySelector("#div_id_quarter");
     let month = form.querySelector("#div_id_month");
@@ -26,7 +26,7 @@ function UpdateForm(form){
 
     ResetToHidden(stat,
                   parent_goal_year,
-                  parent_goal_quarter_or_month,
+                  parent_goal_year_quarter_month,
                   year,
                   quarter,
                   month,
@@ -58,7 +58,7 @@ function UpdateForm(form){
             break;
         case "W":
             EnableField(stat);
-            EnableField(parent_goal_quarter_or_month);
+            EnableField(parent_goal_year_quarter_month);
             EnableField(week);
             break;
     }

@@ -19,9 +19,10 @@ class GoalForm(forms.Form):
         required=False,
         widget=forms.Select(attrs={"onChange": "OnSelectChange(this)"}),
     )
-    parent_goal_quarter_or_month = forms.ModelChoiceField(
+    parent_goal_year_quarter_month = forms.ModelChoiceField(
         queryset=GoalModel.objects.filter(
-            Q(due_time__type=TimeTypeEnum.QUARTER)
+            Q(due_time__type=TimeTypeEnum.YEAR)
+            | Q(due_time__type=TimeTypeEnum.QUARTER)
             | Q(due_time__type=TimeTypeEnum.MONTH)
         ),
         required=False,
@@ -42,10 +43,10 @@ class GoalForm(forms.Form):
         super(GoalForm, self).__init__(*args, **kwargs)
 
         self.fields["parent_goal_year"].label = "Parent goal"
-        self.fields["parent_goal_quarter_or_month"].label = "Parent goal"
+        self.fields["parent_goal_year_quarter_month"].label = "Parent goal"
         self.fields["parent_goal_year"].queryset = self.fields[
             "parent_goal_year"
         ].queryset.filter(user=self.user)
-        self.fields["parent_goal_quarter_or_month"].queryset = self.fields[
-            "parent_goal_quarter_or_month"
+        self.fields["parent_goal_year_quarter_month"].queryset = self.fields[
+            "parent_goal_year_quarter_month"
         ].queryset.filter(user=self.user)
