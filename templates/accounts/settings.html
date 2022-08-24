@@ -1,0 +1,20 @@
+{% extends 'base/_base.html' %}
+
+{% block title %}Settings{% endblock title %}
+
+{% block nav %}
+    {% with active="settings" %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock nav %}
+
+{% block content %}
+    <h1>Settings</h1>
+
+    <br>
+
+    <form action={% url 'delete_account' %} method="post">
+        {% csrf_token %}
+        <button class="btn btn-custom" type="submit">Delete account</button>
+    </form>
+{% endblock content %}
