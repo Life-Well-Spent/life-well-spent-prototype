@@ -143,7 +143,7 @@ class GoalTests(TestCase):
         time = TimeModel.objects.create(
             type=TimeTypeEnum.QUARTER.value,
             year=datetime.now().year,
-            quarter=get_current_quarter() + 1,
+            quarter=get_current_quarter(),
         )
 
         goal = GoalModel.objects.create(
@@ -175,7 +175,7 @@ class GoalTests(TestCase):
         )
 
         quarter_time = TimeModel.objects.create(
-            type=TimeTypeEnum.QUARTER.value, quarter=get_current_quarter() + 1
+            type=TimeTypeEnum.QUARTER.value, quarter=get_current_quarter()
         )
 
         quarter_goal = GoalModel.objects.create(
@@ -225,7 +225,7 @@ class GoalTests(TestCase):
         )
 
         quarter_time = TimeModel.objects.create(
-            type=TimeTypeEnum.QUARTER.value, quarter=get_current_quarter() + 1
+            type=TimeTypeEnum.QUARTER.value, quarter=get_current_quarter()
         )
 
         quarter_goal = GoalModel.objects.create(
