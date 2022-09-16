@@ -27,11 +27,6 @@
                 </ul>
               </li>
             {% endif %}
-            {% if user.is_superuser %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url "admin:index" %}">Admin</a>
-                </li>
-            {% endif %}
           </ul>
           <ul class="navbar-nav ms-auto flex-nowrap">
             {% if user.is_authenticated %}

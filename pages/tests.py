@@ -33,9 +33,3 @@ class HomeTests(TestCase):
         self.client.login(email=self.super_user.email, password="testpass123")
         response = self.client.get(self.url)
         assert "Log out" in response.rendered_content
-
-    def test_superuser(self):
-        self.client.login(email=self.super_user.email, password="testpass123")
-        response = self.client.get(self.url)
-
-        assert "Admin" in response.rendered_content
