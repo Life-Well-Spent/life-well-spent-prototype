@@ -23,4 +23,4 @@ If you want to contribute to this project feel free to check out the issues.
 When you want to add your changes to the project:
 1. Execute `black .` for code formatting
 2. Execute `isort .` for import sorting
-3. Create a PR to the dev branch
+3. Create a PR to the main branch
